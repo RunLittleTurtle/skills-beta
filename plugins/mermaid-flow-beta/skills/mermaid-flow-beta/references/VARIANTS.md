@@ -116,6 +116,8 @@ C -->|"Oui"| E
 
 ## Variante 4 — Avec référence à un autre flow
 
+**Quand l'invoquer en priorité** : si la source mentionne explicitement un autre flow par un en-tête distinct (`FLOW 2`, `SCÉNARIO 2`, `SÉQUENCE ALTERNATIVE`, `LOOP DE MODIFICATION`), c'est le signal le plus net pour utiliser cette variante. Le node `REF1` économise 1 à 3 nodes du budget principal tout en préservant la trace de la suite. Voir SKILL.md, sous-passe C-bis.
+
 Node `REF1["⚙️ Voir flow X — <titre>"]` qui pointe vers un autre diagramme. Utile quand le processus complet est découpé en plusieurs flows reliés. Classe `REF1` en `systemAction` (gris) — pas de classDef séparée nécessaire.
 
 ```

@@ -1,6 +1,6 @@
 ---
 name: mermaid-flow-beta
-description: Version expérimentale du skill mermaid-flow. Transformer un flow (texte, transcript, scénario, fichier markdown, mermaid existant ou image) en un flowchart Mermaid SIMPLIFIÉ pour parties prenantes et directeurs de compte (max 10 étapes, idéalement 7). Analyse en 3 passes (narrative, ambiguïtés noms propres, valeur vs bruit) avant génération. Préfère labels génériques (le chatbot, l'app) plutôt que noms propres de produits/équipes/clients — signale les ambiguïtés détectées. 5 variantes disponibles : linéaire, décision, boucle, référence externe, 2 chemins parallèles. Produit un fichier .md au format strict avec légende dynamique, palette pastel light-mode, emojis acteurs (👤 client, 🤖 IA, ⚙️ système, 🖥️ UI, ⚖️ décision). À invoquer quand l'utilisateur veut vulgariser un processus métier en diagramme accessible pour un plan de projet.
+description: Version expérimentale du skill mermaid-flow. Transformer un flow (texte, transcript, scénario, fichier markdown, mermaid existant ou image) en un flowchart Mermaid SIMPLIFIÉ pour parties prenantes et directeurs de compte (max 10 étapes, idéalement 7). Analyse en 3 passes (narrative, ambiguïtés noms propres, valeur vs bruit incluant la détection de scénarios imbriqués) avant génération. Préfère labels génériques (le chatbot, l'app) plutôt que noms propres de produits/équipes/clients — signale les ambiguïtés détectées. Quand la source mentionne un sous-flow distinct (FLOW 2, séquence alternative), propose de le référencer plutôt que de gaspiller des nodes. 5 variantes disponibles : linéaire, décision, boucle, référence externe, 2 chemins parallèles. Produit un fichier .md au format strict avec légende dynamique, palette pastel light-mode, emojis acteurs (👤 client, 🤖 IA, ⚙️ système, 🖥️ UI, ⚖️ décision). À invoquer quand l'utilisateur veut vulgariser un processus métier en diagramme accessible pour un plan de projet.
 ---
 
 # mermaid-flow-beta — vulgarisation de processus pour plans de projet
@@ -83,6 +83,18 @@ Puis applique la règle de réduction :
 - Si < 5 étapes brutes : n'invente pas d'étapes. Garde tel quel, ajoute du contexte en parenthèses pour enrichir les labels.
 - **Cible** : 7 étapes principales (hors décisions losanges). **Hard cap** : 10 nodes principaux.
 
+### Sous-passe C-bis — Détection de scénarios imbriqués
+
+Avant d'arrêter ton inventaire d'étapes, vérifie si la source contient des **signes de scénario imbriqué** : un en-tête en majuscules ou en gras qui annonce un nouveau flow (`FLOW 2`, `SCÉNARIO 2`, `SÉQUENCE ALTERNATIVE`, `LOOP DE MODIFICATION`), un changement brusque d'acteur principal après le résultat principal du flow courant, ou un bloc qui reprend la numérotation à 2.x ou 3.x après une séquence 1.x complète.
+
+Si tu en repères un, tu as identifié un **sous-flow candidat**. Garde-le pour l'étape 3 — c'est une décision que l'utilisateur doit prendre, pas toi. Trois options à proposer :
+
+- **Inclure en détail** : les étapes du sous-flow occupent des nodes du diagramme principal (par défaut 1-3 nodes). À choisir si le sous-flow est court, indissociable du flow principal, et que le budget de 7-10 nodes le permet sans sacrifier des éléments distinctifs.
+- **Référencer comme node externe** : un seul node `REF1` pointe vers le sous-flow, le diagramme principal s'arrête à son résultat propre puis enchaîne sur cette référence. Variante 4 du catalogue. À choisir quand le sous-flow mérite son propre diagramme et qu'on veut signaler la suite sans la dérouler. **Choix par défaut proposé par le skill** — c'est le compromis qui préserve l'information sans gaspiller le budget.
+- **Supprimer** : le diagramme principal se termine à son résultat principal observable (livraison du livrable, retour à l'écran d'accueil, etc.) et le sous-flow vit ailleurs sans lien dans ce diagramme. À choisir quand on veut maximiser le budget de nodes pour ce qui distingue le flow principal.
+
+Cas concret pour calibrer ton jugement : dans un scénario « Générer un road trip à partir de zéro » qui contient un bloc « FLOW 2 DE MODIFICATION », inclure les étapes de modification gaspille typiquement 2 nodes (« affiner », « finaliser ») qui auraient mieux servi à montrer le profiling adaptatif ou le preview progressif — éléments qui distinguent réellement ce flow d'une simple génération générique.
+
 ### Choix de variante (issue des 3 passes)
 
 À ce stade, tu sais quelle variante du catalogue conviendra le mieux. Les 5 variantes :
@@ -106,6 +118,7 @@ D'abord, présente ton plan **en texte dans le chat** :
 > *- **Persona** : <1 phrase>*
 > *- **Distinction** : <1 phrase>*
 > *- **Ambiguïtés détectées** (si Passe B en a trouvé) : <ex: « Mia » apparaît à la fois comme agence et chatbot dans la source — propose de l'afficher comme « le chatbot »>*
+> *- **Scénarios secondaires détectés** (si C-bis en a trouvé) : <ex: « FLOW 2 DE MODIFICATION » repéré dans la source — propose de référencer (1 node, variante 4) ; alternatives : inclure en détail (2-3 nodes) ou supprimer>*
 > *- **N étapes identifiées** :*
 >   *1. 👤 <étape 1>*
 >   *2. 🖥️ <étape 2>*
@@ -115,7 +128,7 @@ D'abord, présente ton plan **en texte dans le chat** :
 > *- **Variante** : <linéaire | décision | boucle | référence | 2 chemins parallèles>*
 > *- **Couleurs** : palette pastel light-mode standard »*
 
-Si la Passe B n'a rien détecté, n'inclus pas la ligne « Ambiguïtés détectées » — pas de friction inutile.
+Si la Passe B n'a rien détecté, n'inclus pas la ligne « Ambiguïtés détectées » — pas de friction inutile. Même principe pour « Scénarios secondaires détectés » : pas affichée si la sous-passe C-bis n'a rien repéré.
 
 Puis utilise `AskUserQuestion` :
 
@@ -208,6 +221,8 @@ Convention : suffixe `_simplified.md`.
 **Labels génériques par défaut** — Le cas Mia/Authentik est l'incident fondateur de cette beta. Dans la source, « Mia » désignait l'agence et « Authentik » le client final ; le chatbot lui-même n'avait pas de nom propre clair. Le diagramme stable a nommé l'IA « Mia », ce qui était doublement faux (ni l'agence ni le client). Pour un directeur de compte qui ne connaît pas l'écosystème, un label générique (« le chatbot », « l'app », « le système ») élimine ce risque sans rien coûter en clarté.
 
 **Trois passes d'analyse explicites** — La version stable mélangeait analyse et structuration. La beta sépare : Passe A pour comprendre, Passe B pour désambiguïser les noms, Passe C pour réduire à ce qui apporte de la valeur au directeur de compte. Le séparation produit des diagrammes plus pertinents et permet à l'étape 3 de signaler explicitement chaque décision prise.
+
+**Détection de scénarios imbriqués (sous-passe C-bis)** — Les sources métier mélangent fréquemment plusieurs cas d'usage dans un seul document : un flow principal + une séquence alternative + un sous-flow de modification, par exemple. Sans règle, le skill aspire tout dans le diagramme principal et gaspille 2-3 nodes sur du contenu qui devrait vivre ailleurs. La sous-passe C-bis force la question : ce bloc fait-il avancer le flow principal, ou est-ce un autre cas d'usage déguisé ? Le choix par défaut (référencer plutôt qu'inclure, via la variante 4) protège le budget de nodes pour ce qui distingue vraiment le flow courant.
 
 **Variante 5 — 2 chemins parallèles** — La variante « décision » du stable se résout en 1 étape par branche puis converge. Ce n'est pas représentatif des bifurcations métier réelles (B2B/B2C, simple/complexe), qui ont chacune leur propre sous-séquence. La variante 5 corrige ce manque en autorisant 2-3 étapes par branche. Cap à 2 branches max : au-delà, la vulgarisation est ratée et il vaut mieux découper en deux flows séparés.
 
