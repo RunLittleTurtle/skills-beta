@@ -1,0 +1,11 @@
+{
+  "name": "product-management",
+  "version": "1.0.0",
+  "description": "Boîte à outils de Product Management adaptée pour Claude Code CLI : écriture de PRD, gestion de roadmap, updates stakeholders, synthèse de recherche utilisateur, analyse concurrentielle, revue de métriques, planning de sprint et brainstorming produit. Fork adapté du plugin officiel Anthropic (knowledge-work-plugins) pour fonctionner en contexte local (fichiers markdown, Obsidian, Coda) plutôt qu'en environnement Cowork.",
+  "author": {
+    "name": "Samuel Audette",
+    "url": "https://github.com/RunLittleTurtle"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/RunLittleTurtle/skills"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "use-case-value-beta",
+  "description": "Priorise les use cases d'AI/automatisation par impact business chiffré documenté à partir de matériel de découverte (transcripts, post-its, inventaires, notes). Six sources d'Impact $ explicites + colonne Dépend de + colonne Impact Potentiel Estimé. Step 2bis Root Cause Analysis (5 Whys + Ishikawa). Règle d'or v1.3 adoucie avec inférences sur paire d'anchors verbaux (signal heures vague + N personnes cité = chiffrable via défauts conservateurs documentés à la borne basse) en plus des chiffres durs, formules simples, et inférences sur citations FTE explicites. Refusé : multiplicateurs sortis du chapeau ou inférence avec un seul anchor manquant. Score Priorité Impact v1.3 amplifié pour use cases transverses : Personnes_factor en paliers stepwise (1.0 / 1.2 / 1.5 / 1.8) ET Transversalité_factor (1.0 / 1.3 / 1.6) explicites. Algorithme Verdict déterministe. Synthèse Top 10 × 3 lignes par entrée (classement décisif sans section À chiffrer en atelier séparée). Aucune dimension d'effort technique : focus pur VALEUR, effort traité par un futur skill séparé. Sortie : dossier projet par run contenant CSV 27 colonnes et synthèse one-pager prose narrative française Québec.",
+  "version": "1.3.0",
+  "author": {
+    "name": "Samuel Audette",
+    "url": "https://github.com/RunLittleTurtle"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/RunLittleTurtle/skills-beta"
+}

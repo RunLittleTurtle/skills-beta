@@ -1,0 +1,11 @@
+{
+  "name": "use-case-prioritization-beta",
+  "description": "Score, prioritize, and build business cases for AI/automation use cases from any process discovery input (post-it photos, atelier transcripts, process inventories of up to 500+ rows, meeting notes, or mixed workshop materials). Combines BABOK Business Case methodology, UiPath Suitability scoring on a /3 scale with inline qualitative labels, fully-loaded cost calculations, a Run cost benchmarked live by web search per agent type (email auto, dashboard genAI, RAG, OCR, RPA, etc.), and a hybrid confidence score (data completeness × LLM source-validation multiplier). Outputs are written to a per-run project folder containing the working CSV (38-column v5 schema), an executive summary in French Quebec with an LLM judgment layer (bundling, cross-row reads, strategic recommendations) on top of the mechanical CSV verdicts, and an auditable sources_benchmark.md with cited web sources for every $/run figure.",
+  "version": "2.2.0",
+  "author": {
+    "name": "Samuel Audette",
+    "url": "https://github.com/RunLittleTurtle"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/RunLittleTurtle/skills-beta"
+}

@@ -1,15 +1,45 @@
 {
   "name": "skills-beta",
-  "description": "Marketplace BETA personnelle de Samuel Audette — versions instables et expérimentales avant promotion vers RunLittleTurtle/skills. Usage personnel, pas garanti stable.",
+  "description": "Marketplace BETA personnelle de Samuel Audette — versions instables, expérimentales et forks adaptés. Usage personnel, pas garanti stable. Quand un skill est éprouvé, il est promu vers RunLittleTurtle/skills.",
   "owner": {
     "name": "Samuel Audette",
     "url": "https://github.com/RunLittleTurtle"
   },
   "plugins": [
     {
-      "name": "skill-creator-beta",
-      "source": "./plugins/skill-creator-beta",
-      "description": "Version beta de skill-creator alignée sur les principes Anthropic (lean instructions, theory of mind, prose explicative au lieu d'ALL-CAPS) + capacité de modification d'un skill existant en plus de la création. Workflow create/modify unifié à l'Étape 0.0, snapshot avant édition, détection des skills installés dans marketplaces locales et standalones."
+      "name": "agent-talk-beta",
+      "source": "./plugins/agent-talk-beta",
+      "description": "Échanger des messages structurés (conversation, rapport, handoff) entre instances Claude via un dossier-bridge partagé. Pings courts dans COORDINATION.FOCUS.md ou dans BRIDGE.PINGS.md. Complète /coordination sans le remplacer."
+    },
+    {
+      "name": "product-brief-v1-beta",
+      "source": "./plugins/product-brief-v1-beta",
+      "description": "[archivé v1] Version 1 originale du skill product-brief, conservée pour reproductibilité. La version active est `product-brief`. Transformer divers inputs (notes de Business Analyst, data points chiffrés, transcripts d'ateliers ou d'entrevues, insights discovery, OKRs, contraintes budgétaires, brouillons hétérogènes) en un product brief one-pager structuré au format PRD Authentik : Contexte, Problème avec insights citables, Enveloppe & contraintes, Alignement stratégique avec diagramme Mermaid causal OKR, Solution proposée avec Job Stories Klement et Flows AARRR, Out of scope, Risques avec mitigation. Analyse profonde + validation interactive du plan avant génération. Sortie en français Québec, format markdown concis (one-pager dense). À invoquer pour formaliser un product brief PRD à partir d'inputs hétérogènes."
+    },
+    {
+      "name": "product-management",
+      "source": "./plugins/product-management",
+      "description": "Boîte à outils de Product Management adaptée pour Claude Code CLI : écriture de PRD, gestion de roadmap, updates stakeholders, synthèse de recherche utilisateur, analyse concurrentielle, revue de métriques, planning de sprint et brainstorming produit. Fork adapté du plugin officiel Anthropic (knowledge-work-plugins) pour fonctionner en contexte local (fichiers markdown, Obsidian, Coda) plutôt qu'en environnement Cowork."
+    },
+    {
+      "name": "scenario-uc-v2-beta",
+      "source": "./plugins/scenario-uc-v2-beta",
+      "description": "Version parallèle de scenario-uc : ajoute scénarios alternatifs au format HEC (TECH 30710) avec suffixes lettrés (1.3a, 1.3b) et convention de retour explicite, boucles `LOOP : <condition> / FIN LOOP` alignées avec `loop ... end` Mermaid, titre via frontmatter (`Scénario \"Happy path\"`), préfixe AS-IS / TO-BE dans le H1, et validation interactive renforcée. Compatible v1 sur tout le reste."
+    },
+    {
+      "name": "skill-creator-turtle-beta",
+      "source": "./plugins/skill-creator-turtle-beta",
+      "description": "Meta-skill (version beta) : crée OU modifie un skill Claude Code (ou compatible agentskills.io). Aligne sur principes Anthropic (lean instructions, theory of mind, prose au lieu d'ALL-CAPS). Workflow create/modify unifié à l'Étape 0.0, snapshot avant édition, détection des skills installés. Préserve le slug d'origine lors d'une modification."
+    },
+    {
+      "name": "use-case-prioritization-beta",
+      "source": "./plugins/use-case-prioritization-beta",
+      "description": "Score, prioritize, and build business cases for AI/automation use cases from any process discovery input (post-it photos, atelier transcripts, process inventories of up to 500+ rows, meeting notes, or mixed workshop materials). Combines BABOK Business Case methodology, UiPath Suitability scoring on a /3 scale with inline qualitative labels, fully-loaded cost calculations, a Run cost benchmarked live by web search per agent type (email auto, dashboard genAI, RAG, OCR, RPA, etc.), and a hybrid confidence score (data completeness × LLM source-validation multiplier). Outputs are written to a per-run project folder containing the working CSV (38-column v5 schema), an executive summary in French Quebec with an LLM judgment layer (bundling, cross-row reads, strategic recommendations) on top of the mechanical CSV verdicts, and an auditable sources_benchmark.md with cited web sources for every $/run figure."
+    },
+    {
+      "name": "use-case-value-beta",
+      "source": "./plugins/use-case-value-beta",
+      "description": "Priorise les use cases d'AI/automatisation par impact business chiffré documenté à partir de matériel de découverte (transcripts, post-its, inventaires, notes). Six sources d'Impact $ explicites + colonne Dépend de + colonne Impact Potentiel Estimé. Step 2bis Root Cause Analysis (5 Whys + Ishikawa). Règle d'or v1.3 adoucie avec inférences sur paire d'anchors verbaux (signal heures vague + N personnes cité = chiffrable via défauts conservateurs documentés à la borne basse) en plus des chiffres durs, formules simples, et inférences sur citations FTE explicites. Refusé : multiplicateurs sortis du chapeau ou inférence avec un seul anchor manquant. Score Priorité Impact v1.3 amplifié pour use cases transverses : Personnes_factor en paliers stepwise (1.0 / 1.2 / 1.5 / 1.8) ET Transversalité_factor (1.0 / 1.3 / 1.6) explicites. Algorithme Verdict déterministe. Synthèse Top 10 × 3 lignes par entrée (classement décisif sans section À chiffrer en atelier séparée). Aucune dimension d'effort technique : focus pur VALEUR, effort traité par un futur skill séparé. Sortie : dossier projet par run contenant CSV 27 colonnes et synthèse one-pager prose narrative française Québec."
     }
   ]
 }

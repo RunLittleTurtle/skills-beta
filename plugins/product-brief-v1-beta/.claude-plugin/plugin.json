@@ -1,0 +1,11 @@
+{
+  "name": "product-brief-v1-beta",
+  "description": "[archivé v1] Version 1 originale du skill product-brief, conservée pour reproductibilité. La version active est `product-brief`. Transformer divers inputs (notes de Business Analyst, data points chiffrés, transcripts d'ateliers ou d'entrevues, insights discovery, OKRs, contraintes budgétaires, brouillons hétérogènes) en un product brief one-pager structuré au format PRD Authentik : Contexte, Problème avec insights citables, Enveloppe & contraintes, Alignement stratégique avec diagramme Mermaid causal OKR, Solution proposée avec Job Stories Klement et Flows AARRR, Out of scope, Risques avec mitigation. Analyse profonde + validation interactive du plan avant génération. Sortie en français Québec, format markdown concis (one-pager dense). À invoquer pour formaliser un product brief PRD à partir d'inputs hétérogènes.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Samuel Audette",
+    "url": "https://github.com/RunLittleTurtle"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/RunLittleTurtle/skills-beta"
+}

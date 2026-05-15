@@ -1,0 +1,11 @@
+{
+  "name": "agent-talk-beta",
+  "description": "Échanger des messages structurés (conversation, rapport, handoff) entre instances Claude via un dossier-bridge partagé. Pings courts dans COORDINATION.FOCUS.md ou dans BRIDGE.PINGS.md. Complète /coordination sans le remplacer.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Samuel Audette",
+    "url": "https://github.com/RunLittleTurtle"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/RunLittleTurtle/skills-beta"
+}
