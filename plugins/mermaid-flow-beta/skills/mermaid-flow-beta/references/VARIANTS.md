@@ -162,10 +162,25 @@ C -->|"Complexe"| F --> G --> H --> I
 
 ## Règles de combinaison
 
-Le skill **ne combine pas** les variantes. Si l'analyse semble appeler une combinaison (ex: « 2 chemins parallèles avec une boucle dans le chemin 2 »), choisis la variante dominante et simplifie l'autre dimension :
+Une seule **complexité structurelle dominante** par diagramme (la variante choisie : boucle, ou 2 chemins, ou ref externe). Cette complexité dominante est ce que le lecteur retient à première lecture.
 
-- 2 chemins + 1 boucle dans une branche → privilégie variante 5, supprime la boucle (élève l'abstraction).
-- 2 chemins + 2 décisions → privilégie variante 5, fusionne les 2 décisions en une seule décision majeure en amont.
-- Décision + boucle dans le diagramme → choisis variante 3 (boucle) et déplace la décision en amont si possible.
+**Mais une décision secondaire courte est autorisée** en complément, à condition de respecter ces contraintes :
 
-La raison : un diagramme vulgarisé pour un directeur de compte ne supporte pas plus d'une complexité structurelle. Quand deux complexités cohabitent, c'est le signal qu'il faut découper en deux flows reliés par référence (variante 4).
+- **1 décision secondaire max** en plus de la dominante.
+- **Branches courtes** : 1 étape par branche (typiquement 2 boutons terminaux, 2 actions finales du client). Au-delà, ce n'est plus secondaire — c'est la variante 5.
+- **Position préférée** : en début ou en fin de flow, pas au milieu (sinon ça vole la vedette à la variante dominante).
+- **La décision dominante reste un losange explicite** — ne fusionne pas une décision en un node UI ou IA juste pour éviter une combinaison. Si la source montre vraiment 2 boutons, garde un losange.
+
+Exemples acceptés :
+
+- Variante 1 (linéaire) + losange terminal « ⚖️ Valide ou rejette ? » avec 2 actions client courtes en sortie.
+- Variante 3 (boucle) + losange terminal « ⚖️ Sauvegarder ou exporter ? » avant la fin.
+- Variante 5 (2 chemins) + losange terminal commun après convergence.
+
+Exemples refusés (vraies combinaisons à découper) :
+
+- 2 chemins parallèles + boucle au milieu d'une branche → variante 5 dominante, supprime la boucle ou découpe en 2 flows reliés par référence (variante 4).
+- Décision majeure au milieu + boucle qui repart de plus loin → variante 3 dominante, déplace la décision en amont, ou découpe.
+- 2 décisions majeures dans un même flow → fusionne-les en une seule décision majeure en amont, ou découpe.
+
+La raison : un diagramme pour un directeur de compte porte une complexité principale (ce qui rend ce flow unique) et tolère un détail terminal de plus (les 2 options finales typiques). Au-delà, c'est le signal qu'il faut découper en flows reliés par référence — et c'est précisément l'usage du dossier proposé en étape 5a du SKILL.md.

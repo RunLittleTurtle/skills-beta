@@ -152,22 +152,43 @@ Puis utilise `AskUserQuestion` :
 - Max 10 nodes principaux (hors légende), cible 7.
 - Numérotation `"1. ..."` cohérente si > 5 étapes.
 
-Un exemple complet d'output (variante 5 — 2 chemins parallèles) est dans `assets/example_flow_legende.md`.
+Un exemple complet d'output (variante 5 — 2 chemins parallèles) est dans `assets/example_flow_simplified.md`.
 
 ---
 
 ## Étape 5 — Sauvegarder et confirmer
 
-### 5a. Déterminer l'emplacement
+### 5a. Demander si on regroupe dans un dossier
 
-- Si l'input était un **fichier markdown** : propose de sauvegarder dans le **même dossier** que le fichier source, avec le suffixe `_legende.md` (ex: `flow_5.md` → `flow_5_legende.md`). Confirme via `AskUserQuestion`.
-- Si l'input était **texte/transcript/mermaid/image** dans le chat : demande le path absolu via `AskUserQuestion` (pas de défaut hardcodé — le poste de travail de l'utilisateur peut ne pas avoir de `~/Desktop`).
+Avant de choisir le nom de fichier, demande à l'utilisateur via `AskUserQuestion` :
 
-### 5b. Écrire et confirmer
+> *« Tu veux regrouper ce flow avec d'autres flows liés dans un dossier ? Utile si tu prévois d'ajouter des séquences alternatives ou des flows parallèles autour du même processus. »*
 
-1. `Write` du fichier markdown final au path validé.
-2. Confirme en une phrase : *« Flowchart sauvegardé dans `<path>`. <N> étapes, variante <linéaire|décision|boucle|ref|2 chemins>. »*
-3. **Une seule fois par session**, suggère à l'utilisateur de prévisualiser avec un viewer Mermaid (mermaid.live, extension VS Code).
+Options :
+
+- *« Oui, créer un nouveau dossier »* — demande le nom du dossier en texte libre (ex: `roadtrip_flows`), créé au path déterminé en 5b.
+- *« Oui, utiliser un dossier existant »* — demande le path absolu du dossier.
+- *« Non, fichier seul »* (Recommended si premier flow ou flow isolé) — sauvegarde direct au path déterminé en 5b.
+
+### 5b. Déterminer le nom de fichier
+
+Convention : suffixe `_simplified.md`.
+
+- **Fichier markdown en source** : reprends le nom du fichier source + `_simplified.md`. Ex : `flow_5.md` → `flow_5_simplified.md` ; `demande_chatbot.md` → `demande_chatbot_simplified.md`. Si la source est elle-même déjà suffixée `_simplified`, ne le redouble pas (`flow_x_simplified.md` reste tel quel ou demande à l'utilisateur).
+- **Texte / transcript / mermaid / image en source** : propose un nom dérivé du titre du flow à l'étape 4 (snake_case court) + `_simplified.md`. Ex : titre « Demande client traitée par le chatbot » → `demande_client_simplified.md`. Confirme via `AskUserQuestion` ou demande un nom alternatif en texte libre.
+
+### 5c. Déterminer l'emplacement final
+
+- Si **dossier choisi en 5a** : le fichier va dans ce dossier (nouveau ou existant).
+- Si **fichier seul + source était un fichier markdown** : même dossier que la source.
+- Si **fichier seul + source était texte/transcript/mermaid/image** : demande le path absolu du dossier via `AskUserQuestion` (pas de défaut hardcodé — le poste de travail de l'utilisateur peut ne pas avoir de `~/Desktop`).
+
+### 5d. Écrire et confirmer
+
+1. Si dossier à créer : `mkdir -p <path>` d'abord.
+2. `Write` du fichier markdown final au path validé.
+3. Confirme en une phrase : *« Flowchart sauvegardé dans `<path>`. <N> étapes, variante <linéaire|décision|boucle|ref|2 chemins>. »*
+4. **Une seule fois par session**, suggère à l'utilisateur de prévisualiser avec un viewer Mermaid (mermaid.live, extension VS Code).
 
 ---
 
@@ -207,4 +228,4 @@ Un exemple complet d'output (variante 5 — 2 chemins parallèles) est dans `ass
 | `references/ACTORS_RULES.md` | Passe A — classification des 5 acteurs, distinctions fines (⚙️ vs 🖥️, IA vs système). Passe B — règle anti-confusion noms propres, exemples. |
 | `references/VARIANTS.md` | Étape 4a — squelettes Mermaid des 5 variantes (linéaire, décision, boucle, ref, 2 chemins parallèles) et règles de combinaison. |
 | `references/PALETTE.md` | Étape 4a — couleurs exactes, `classDef`, format légende dynamique, vérifications finales. |
-| `assets/example_flow_legende.md` | Étape 4 — exemple complet d'output (variante 5 avec 2 chemins parallèles). |
+| `assets/example_flow_simplified.md` | Étape 4 — exemple complet d'output (variante 5 avec 2 chemins parallèles). |
