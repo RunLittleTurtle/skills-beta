@@ -1,0 +1,11 @@
+{
+  "name": "scenario-uc-v1-beta",
+  "description": "[archivé v1] Version 1 originale du skill scenario-uc, conservée pour reproductibilité. La version active est `scenario-uc` (stable) qui ajoute mode AS-IS / TO-BE, séquences alternatives HEC, boucles LOOP/FIN LOOP et validation interactive renforcée. Transformer n'importe quel input (texte, brouillon md, PDF, image, URL Drive, idée verbale) en un fichier markdown de scénario use-case au format Authentik PRD complet : description, intent, scénarios textuels numérotés, diagramme de séquence Mermaid. Analyse profonde + validation interactive avant génération. Sortie en français.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Samuel Audette",
+    "url": "https://github.com/RunLittleTurtle"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/RunLittleTurtle/skills-beta"
+}

@@ -22,7 +22,7 @@ Les deux marketplaces (`skills` et `skills-beta`) cohabitent sans conflit. Les s
 | `agent-talk-beta` | parallèle | Messages structurés entre instances Claude (conversation, rapport, handoff) via dossier-bridge partagé. Complète `/coordination`. |
 | `product-brief-v1-beta` | archive | Version 1 originale de `product-brief`. Conservée pour reproductibilité. La version active est `product-brief` (stable). |
 | `product-management` | fork | Boîte à outils PM forkée du plugin Anthropic (knowledge-work-plugins) adaptée pour Claude Code CLI — slug conservé pour compatibilité interne. |
-| `scenario-uc-v2-beta` | parallèle | Version parallèle de `scenario-uc` avec scénarios alternatifs format HEC, boucles LOOP/FIN LOOP, préfixe AS-IS/TO-BE. |
+| `scenario-uc-v1-beta` | archive | Version 1 (originale) de `scenario-uc`. Conservée pour reproductibilité. La version active (V2 avec mode AS-IS/TO-BE, séquences alternatives HEC, boucles LOOP/FIN LOOP, validation interactive renforcée) est `scenario-uc` dans la marketplace stable. |
 | `skill-creator-turtle-v1-beta` | archive | Version 1 (originale) de `skill-creator-turtle`. Conservée pour reproductibilité. La version active (V2 avec workflow modify + principes Anthropic) est `skill-creator-turtle` dans la marketplace stable. |
 | `use-case-prioritization-beta` | draft | Score + priorise + chiffre use cases (BABOK + UiPath Suitability + Run cost benchmarké web). |
 | `use-case-value-beta` | parallèle | Priorise use cases par impact business chiffré (6 sources Impact $, Score amplifié transverse, Top 10 décisif). |

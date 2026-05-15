@@ -22,9 +22,9 @@
       "description": "Boîte à outils de Product Management adaptée pour Claude Code CLI : écriture de PRD, gestion de roadmap, updates stakeholders, synthèse de recherche utilisateur, analyse concurrentielle, revue de métriques, planning de sprint et brainstorming produit. Fork adapté du plugin officiel Anthropic (knowledge-work-plugins) pour fonctionner en contexte local (fichiers markdown, Obsidian, Coda) plutôt qu'en environnement Cowork."
     },
     {
-      "name": "scenario-uc-v2-beta",
-      "source": "./plugins/scenario-uc-v2-beta",
-      "description": "Version parallèle de scenario-uc : ajoute scénarios alternatifs au format HEC (TECH 30710) avec suffixes lettrés (1.3a, 1.3b) et convention de retour explicite, boucles `LOOP : <condition> / FIN LOOP` alignées avec `loop ... end` Mermaid, titre via frontmatter (`Scénario \"Happy path\"`), préfixe AS-IS / TO-BE dans le H1, et validation interactive renforcée. Compatible v1 sur tout le reste."
+      "name": "scenario-uc-v1-beta",
+      "source": "./plugins/scenario-uc-v1-beta",
+      "description": "[archivé v1] Version 1 originale du skill scenario-uc, conservée pour reproductibilité. La version active (V2 avec mode AS-IS / TO-BE, séquences alternatives HEC suffixes a/b/c, boucles LOOP/FIN LOOP, validation interactive renforcée) est `scenario-uc` dans la marketplace stable. Transformer n'importe quel input (texte, brouillon md, PDF, image, URL Drive, idée verbale) en un fichier markdown de scénario use-case au format Authentik PRD complet : description, intent, scénarios textuels numérotés, diagramme de séquence Mermaid. Analyse profonde + validation interactive avant génération. Sortie en français."
     },
     {
       "name": "skill-creator-turtle-v1-beta",
