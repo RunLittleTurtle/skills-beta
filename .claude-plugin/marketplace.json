@@ -27,8 +27,8 @@
       "description": "Version parallèle de scenario-uc : ajoute scénarios alternatifs au format HEC (TECH 30710) avec suffixes lettrés (1.3a, 1.3b) et convention de retour explicite, boucles `LOOP : <condition> / FIN LOOP` alignées avec `loop ... end` Mermaid, titre via frontmatter (`Scénario \"Happy path\"`), préfixe AS-IS / TO-BE dans le H1, et validation interactive renforcée. Compatible v1 sur tout le reste."
     },
     {
-      "name": "skill-creator-turtle-beta",
-      "source": "./plugins/skill-creator-turtle-beta",
+      "name": "skill-creator-turtle-v1-beta",
+      "source": "./plugins/skill-creator-turtle-v1-beta",
       "description": "Meta-skill (version beta) : crée OU modifie un skill Claude Code (ou compatible agentskills.io). Aligne sur principes Anthropic (lean instructions, theory of mind, prose au lieu d'ALL-CAPS). Workflow create/modify unifié à l'Étape 0.0, snapshot avant édition, détection des skills installés. Préserve le slug d'origine lors d'une modification."
     },
     {

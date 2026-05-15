@@ -1,9 +1,9 @@
 ---
-name: skill-creator-turtle-beta
+name: skill-creator-turtle-v1-beta
 description: Créer un nouveau skill Claude Code OU modifier un skill existant, dans une marketplace personnelle (Type A), en standalone perso (Type B), ou pour un autre outil compatible agentskills.io (Type C). Détecte automatiquement les fichiers de référence passés en argument et les skills installés sur la machine. Préserve le slug d'origine lors d'une modification, snapshot le skill dans /tmp/ avant édition. Persiste la config dans ~/.claude/skill-creator-turtle/config.json (clés stable + beta_*). À invoquer quand l'utilisateur veut créer ou modifier un skill, peu importe son setup ou ses intentions.
 ---
 
-# skill-creator-turtle-beta — Créer ou modifier un skill (version beta alignée Anthropic)
+# skill-creator-turtle-v1-beta — Créer ou modifier un skill (version beta alignée Anthropic)
 
 Cette version étend le skill-creator-turtle stable avec un workflow de **modification** d'un skill existant (préserve le slug, snapshot, édition guidée) et adopte les principes Anthropic : prose explicative plutôt que tables ALL-CAPS, theory of mind plutôt que directives rigides, lean instructions plutôt que sur-spécification.
 
@@ -99,7 +99,7 @@ La config vit dans `~/.claude/skill-creator-turtle/config.json` et supporte deux
 
 ### 0.1 — Choix du contexte (stable vs beta)
 
-Le skill `skill-creator-turtle-beta` détecte son propre contexte via son `name:` (suffixe `-beta` → contexte beta par défaut). Mais l'utilisateur peut vouloir créer un skill stable depuis l'invocation beta (par exemple ajouter directement à la marketplace stable sans passer par beta). Demande via `AskUserQuestion` :
+Le skill `skill-creator-turtle-v1-beta` détecte son propre contexte via son `name:` (suffixe `-beta` → contexte beta par défaut). Mais l'utilisateur peut vouloir créer un skill stable depuis l'invocation beta (par exemple ajouter directement à la marketplace stable sans passer par beta). Demande via `AskUserQuestion` :
 
 > "Dans quelle marketplace ajouter ce skill ?
 >
