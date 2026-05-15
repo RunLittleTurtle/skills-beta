@@ -1,0 +1,15 @@
+{
+  "name": "skills-beta",
+  "description": "Marketplace BETA personnelle de Samuel Audette — versions instables et expérimentales avant promotion vers RunLittleTurtle/skills. Usage personnel, pas garanti stable.",
+  "owner": {
+    "name": "Samuel Audette",
+    "url": "https://github.com/RunLittleTurtle"
+  },
+  "plugins": [
+    {
+      "name": "skill-creator-beta",
+      "source": "./plugins/skill-creator-beta",
+      "description": "Version beta de skill-creator alignée sur les principes Anthropic (lean instructions, theory of mind, prose explicative au lieu d'ALL-CAPS) + capacité de modification d'un skill existant en plus de la création. Workflow create/modify unifié à l'Étape 0.0, snapshot avant édition, détection des skills installés dans marketplaces locales et standalones."
+    }
+  ]
+}
