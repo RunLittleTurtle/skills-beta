@@ -54,7 +54,7 @@ Slash command Claude Code : `/<slug>:<slug>` (ou `/<slug>` selon ta config).
 MIT — voir [LICENSE](../../LICENSE) à la racine du repo.
 
 <!--
-Substitutions à faire au moment de la génération (skill-creator-turtle Étape 7 Type A) :
+Substitutions à faire au moment de la génération (skill-creator-turtle-v1-beta Étape 7 Type A) :
 
 - <slug>            : valeur saisie à l'Étape 3
 - <description>     : valeur saisie à l'Étape 4 (description complète, telle quelle)

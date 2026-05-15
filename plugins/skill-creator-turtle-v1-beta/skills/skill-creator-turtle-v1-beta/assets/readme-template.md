@@ -32,7 +32,7 @@ cp -R <repo_name>/plugins/<nom-du-skill>/skills/<nom-du-skill> <DOSSIER_SKILLS_D
 
 | Nom | Description | Use case |
 |---|---|---|
-| _(aucun pour le moment — ajoute-en avec `skill-creator-turtle`)_ | | |
+| _(aucun pour le moment — ajoute-en avec `skill-creator-turtle-v1-beta`)_ | | |
 
 ## Licence
 

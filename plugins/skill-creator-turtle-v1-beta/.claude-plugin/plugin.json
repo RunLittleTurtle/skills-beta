@@ -1,7 +1,7 @@
 {
   "name": "skill-creator-turtle-v1-beta",
-  "description": "Meta-skill (version beta) : crée OU modifie un skill Claude Code (ou compatible agentskills.io). Aligne sur principes Anthropic (lean instructions, theory of mind, prose au lieu d'ALL-CAPS). Workflow create/modify unifié à l'Étape 0.0, snapshot avant édition, détection des skills installés. Préserve le slug d'origine lors d'une modification.",
-  "version": "0.1.0",
+  "description": "Meta-skill: crée interactivement de nouveaux skills Claude Code dans le mono-repo RunLittleTurtle/skills-beta, met à jour marketplace.json + README.md, et propose de commit + push automatiquement.",
+  "version": "1.0.0",
   "author": {
     "name": "Samuel Audette",
     "url": "https://github.com/RunLittleTurtle"

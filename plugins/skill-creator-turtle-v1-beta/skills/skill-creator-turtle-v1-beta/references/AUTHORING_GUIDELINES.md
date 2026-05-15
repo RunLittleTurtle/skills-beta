@@ -1,6 +1,6 @@
 # Guidelines pour rédiger un bon SKILL.md
 
-À lire quand tu (skill-creator-turtle) guides l'utilisateur dans la rédaction d'un nouveau skill, OU quand l'utilisateur demande de "vérifier la qualité" d'un skill existant.
+À lire quand tu (skill-creator-turtle-v1-beta) guides l'utilisateur dans la rédaction d'un nouveau skill, OU quand l'utilisateur demande de "vérifier la qualité" d'un skill existant.
 
 ## Sources officielles (2026)
 
@@ -113,37 +113,3 @@ Si tu dépasses 500 lignes, scinde. Le SKILL.md principal contient le workflow e
 | Frontmatter avec champs custom | Validateurs Claude Code rejettent | Stick au standard agentskills.io |
 | Symlinks vers le skill | Bugs cross-machine | Distribution via marketplace ou cp -R |
 | Pas de "Réponds en X" | Le skill peut répondre dans la mauvaise langue | Ajoute `**Réponds en français. Sois concis.**` |
-
----
-
-## Principes Anthropic (skill-creator-turtle officiel)
-
-Source : [github.com/anthropics/skills/tree/main/skills/skill-creator-turtle](https://github.com/anthropics/skills/tree/main/skills/skill-creator-turtle). Quatre principes guident la rédaction des skills officiels Anthropic, qui s'appliquent aussi à tout skill personnel.
-
-### 1. La description est le trigger primary
-
-> *"When to trigger, what it does. This is the primary triggering mechanism — include both what the skill does AND specific contexts for when to use it."*
-
-Si Claude ne déclenche pas un skill au bon moment, le réflexe doit être de revoir la description avant la logique. Bonne description = un verbe d'action en tête + une phrase « À invoquer quand... » + des mots-clés spécifiques au domaine. Pas de vague (« aide avec X »).
-
-### 2. Progressive disclosure
-
-Métadonnées (frontmatter ~100 mots) toujours chargées en contexte. Body SKILL.md < 500 lignes, chargé seulement quand le skill se déclenche. Ressources bundlées (`references/`, `assets/`, `scripts/`) lues à la demande, jamais préchargées.
-
-Concrètement : si une section du SKILL.md gonfle au-delà d'une utilisation occasionnelle (un workflow de cas particulier, une table de référence, un long template), externalise-la dans `references/<sujet>.md` et mets juste un pointeur dans le SKILL.md.
-
-### 3. Lean instructions plutôt qu'ALL-CAPS
-
-> *"Remove things that aren't pulling their weight. Explain why behind requests rather than issuing rigid ALL-CAPS directives — today's LLMs respond better to reasoning than rote rules."*
-
-Pas de « RÈGLE STRICTE : NE JAMAIS X ». Préfère « La raison : X. Si tu vois Y, c'est probablement une fuite, signale-le. » Claude saura alors généraliser à des cas non prévus, au lieu de chercher à matcher littéralement la règle.
-
-### 4. Theory of mind
-
-> *"They have good theory of mind and when given a good harness can go beyond rote instructions."*
-
-Quand tu décris un workflow, donne le contexte et l'intention, pas juste la procédure. Claude infère mieux les cas limites quand il comprend pourquoi une étape existe. Évite les sur-spécifications du genre « fais exactement X, puis Y, puis Z » quand tu peux dire « l'objectif est Q, et voici les outils dont tu disposes ».
-
-### Lien avec les anti-patterns ci-dessus
-
-Ces principes Anthropic complètent (pas remplacent) les anti-patterns listés. Un SKILL.md peut respecter la limite < 500 lignes (anti-pattern technique) tout en étant rempli de directives ALL-CAPS (anti-pattern stylistique). Bonne rédaction = les deux niveaux.

@@ -1,8 +1,8 @@
 # Détection automatique de fichiers de référence
 
-À lire quand l'invocation initiale du skill-creator-turtle contient un ou plusieurs chemins de fichiers existants. Ce workflow remplace les consignes en texte libre du genre "analyse profondément ce fichier" par une séquence de questions structurées, et termine par un brief de référence injecté dans les Étapes 4, 6a et 6c du workflow principal.
+À lire quand l'invocation initiale du skill-creator-turtle-v1-beta contient un ou plusieurs chemins de fichiers existants. Ce workflow remplace les consignes en texte libre du genre "analyse profondément ce fichier" par une séquence de questions structurées, et termine par un brief de référence injecté dans les Étapes 4, 6a et 6c du workflow principal.
 
-**Principe central** : l'utilisateur fournit un ou plusieurs fichiers de référence (gabarits de qualité, exemples bien faits, fichiers à reproduire). Le skill-creator-turtle les **lit, les analyse réellement**, et propose à l'utilisateur des composantes **DÉRIVÉES DU CONTENU RÉEL** des fichiers (pas une liste hardcodée). L'utilisateur coche celles que le skill généré doit reproduire.
+**Principe central** : l'utilisateur fournit un ou plusieurs fichiers de référence (gabarits de qualité, exemples bien faits, fichiers à reproduire). Le skill-creator-turtle-v1-beta les **lit, les analyse réellement**, et propose à l'utilisateur des composantes **DÉRIVÉES DU CONTENU RÉEL** des fichiers (pas une liste hardcodée). L'utilisateur coche celles que le skill généré doit reproduire.
 
 ---
 
@@ -77,7 +77,7 @@ Cette question est **universelle** : elle influence la finesse de l'analyse en -
 
 ## -1.5 ANALYSER les fichiers selon la profondeur choisie
 
-**C'est l'étape la plus importante.** Le skill-creator-turtle analyse réellement le contenu des fichiers pour identifier les **composantes structurantes présentes**. Le résultat est utilisé pour générer dynamiquement les options de la question -1.6.
+**C'est l'étape la plus importante.** Le skill-creator-turtle-v1-beta analyse réellement le contenu des fichiers pour identifier les **composantes structurantes présentes**. Le résultat est utilisé pour générer dynamiquement les options de la question -1.6.
 
 ### Quoi extraire (selon le type de fichier)
 
