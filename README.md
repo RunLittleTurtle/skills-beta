@@ -20,6 +20,7 @@ Les deux marketplaces (`skills` et `skills-beta`) cohabitent sans conflit. Les s
 | Nom | Type | Description courte |
 |---|---|---|
 | `agent-talk-beta` | parallèle | Messages structurés entre instances Claude (conversation, rapport, handoff) via dossier-bridge partagé. Complète `/coordination`. |
+| `mermaid-flow-beta` | parallèle | Version v2 expérimentale de `mermaid-flow` : analyse en 3 passes (narrative, ambiguïtés noms propres, valeur vs bruit), labels génériques par défaut (le chatbot, l'app), nouvelle variante 5 « 2 chemins parallèles », progressive disclosure (SKILL.md < 250 lignes). |
 | `product-brief-v1-beta` | archive | Version 1 originale de `product-brief`. Conservée pour reproductibilité. La version active est `product-brief` (stable). |
 | `product-management` | fork | Boîte à outils PM forkée du plugin Anthropic (knowledge-work-plugins) adaptée pour Claude Code CLI — slug conservé pour compatibilité interne. |
 | `scenario-uc-v1-beta` | archive | Version 1 (originale) de `scenario-uc`. Conservée pour reproductibilité. La version active (V2 avec mode AS-IS/TO-BE, séquences alternatives HEC, boucles LOOP/FIN LOOP, validation interactive renforcée) est `scenario-uc` dans la marketplace stable. |
@@ -53,7 +54,7 @@ Le `<slug>-beta` peut rester dans la marketplace beta comme archive ou être ret
 
 ```
 skills-beta/
-├── .claude-plugin/marketplace.json    Catalogue (7 plugins)
+├── .claude-plugin/marketplace.json    Catalogue (8 plugins)
 ├── plugins/
 │   └── <slug>/
 │       ├── .claude-plugin/plugin.json Manifest du plugin

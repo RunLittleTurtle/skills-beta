@@ -12,6 +12,11 @@
       "description": "Échanger des messages structurés (conversation, rapport, handoff) entre instances Claude via un dossier-bridge partagé. Pings courts dans COORDINATION.FOCUS.md ou dans BRIDGE.PINGS.md. Complète /coordination sans le remplacer."
     },
     {
+      "name": "mermaid-flow-beta",
+      "source": "./plugins/mermaid-flow-beta",
+      "description": "Version expérimentale du skill mermaid-flow. Transformer un flow (texte, transcript, scénario, fichier markdown, mermaid existant ou image) en un flowchart Mermaid SIMPLIFIÉ pour parties prenantes et directeurs de compte (max 10 étapes, idéalement 7). Analyse en 3 passes (narrative, ambiguïtés noms propres, valeur vs bruit) avant génération. Préfère labels génériques (le chatbot, l'app) plutôt que noms propres de produits/équipes/clients — signale les ambiguïtés détectées. 5 variantes : linéaire, décision, boucle, référence externe, 2 chemins parallèles. Produit un fichier .md avec légende dynamique et palette pastel light-mode."
+    },
+    {
       "name": "product-brief-v1-beta",
       "source": "./plugins/product-brief-v1-beta",
       "description": "[archivé v1] Version 1 originale du skill product-brief, conservée pour reproductibilité. La version active est `product-brief`. Transformer divers inputs (notes de Business Analyst, data points chiffrés, transcripts d'ateliers ou d'entrevues, insights discovery, OKRs, contraintes budgétaires, brouillons hétérogènes) en un product brief one-pager structuré au format PRD Authentik : Contexte, Problème avec insights citables, Enveloppe & contraintes, Alignement stratégique avec diagramme Mermaid causal OKR, Solution proposée avec Job Stories Klement et Flows AARRR, Out of scope, Risques avec mitigation. Analyse profonde + validation interactive du plan avant génération. Sortie en français Québec, format markdown concis (one-pager dense). À invoquer pour formaliser un product brief PRD à partir d'inputs hétérogènes."
